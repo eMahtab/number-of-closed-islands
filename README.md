@@ -1,6 +1,12 @@
 # Number of closed islands
 ## https://leetcode.com/problems/number-of-closed-islands
 
+Given a 2D grid consists of 0s (land) and 1s (water).  An island is a maximal 4-directionally connected group of 0s and a closed island is an island totally (all left, top, right, bottom) surrounded by 1s.
+
+Return the number of closed islands.
+
+![Closed Island](closed-island.png?raw=true "Closed Island")
+
 
 ### Implementation 1 : Mutating the input array , Time : O(rows * columns) , Space : O(rows * columns)
 
