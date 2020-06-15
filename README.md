@@ -52,7 +52,7 @@ class Solution {
 }
 ```
 
-### Implementation 2 : Without mutating input array , Time : O(rows * columns) , Space : O(rows * columns)
+### Implementation 2 : Without mutation, Time : O(rows * columns) , Space : O(rows * columns)
 
 ```java
 class Solution {
