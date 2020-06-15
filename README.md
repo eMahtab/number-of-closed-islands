@@ -7,6 +7,7 @@ Return the number of closed islands.
 
 ![Closed Island](closed-island.png?raw=true "Closed Island")
 
+e.g. For above grid, the number of closed islands is 2.
 
 ### Implementation 1 : Mutating the input array , Time : O(rows * columns) , Space : O(rows * columns)
 
