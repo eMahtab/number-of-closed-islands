@@ -116,7 +116,7 @@ class Solution {
 }
 ```
 
-### Implementation 2 : Without mutation, Time : O(rows * columns) , Space : O(rows * columns)
+### Implementation 3 : Without mutation, Time : O(rows * columns) , Space : O(rows * columns)
 
 ```java
 class Solution {
