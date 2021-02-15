@@ -9,7 +9,64 @@ Return the number of closed islands.
 
 e.g. For above grid, the number of closed islands is 2.
 
-### Implementation 1 : Mutating the input array , Time : O(rows * columns) , Space : O(rows * columns)
+### Implementation 1 : (This is what came to my mind)
+```java
+class Solution {
+    public int closedIsland(int[][] grid) {
+        if(grid == null || grid.length == 0)
+            return 0;
+        
+        int rows = grid.length;
+        int cols = grid[0].length;
+        
+        for(int j = 0; j < cols; j++) {
+            if(grid[0][j] == 0)
+                boundary(grid, 0, j);
+            if(grid[rows-1][j] == 0)
+                boundary(grid, rows - 1, j);
+        }
+        
+        for(int i = 0; i < rows; i++) {
+            if(grid[i][0] == 0)
+                boundary(grid, i , 0);
+            if(grid[i][cols-1] == 0)
+                boundary(grid, i, cols -1);
+        }
+        int closedIslands = 0;
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                if(grid[i][j] == 0) {
+                    closedIslands++;
+                    island(grid, i, j);
+                }
+            }
+        }
+        return closedIslands;
+    }
+    
+    private void boundary(int[][] grid, int r, int c) {
+        if(r < 0 || r >= grid.length || c < 0 || c >= grid[0].length || grid[r][c] != 0)
+            return;
+        grid[r][c] = -1;
+        boundary(grid, r , c+1);
+        boundary(grid, r, c-1);
+        boundary(grid, r-1, c);
+        boundary(grid, r+1, c);
+    }
+    
+    private void island(int[][] grid, int r, int c) {
+        if(r < 0 || r >= grid.length || c < 0 || c >= grid[0].length || grid[r][c] != 0)
+            return;
+        grid[r][c] = 2;
+        island(grid, r, c+ 1);
+        island(grid, r, c-1);
+        island(grid, r-1, c);
+        island(grid, r+1, c);
+    }
+}
+```
+
+### Implementation 2 : Mutating the input array , Time : O(rows * columns) , Space : O(rows * columns)
 
 ```java
 class Solution {
